@@ -1,0 +1,24 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/point#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Point Entity",
+  "type": "object",
+  "properties": {
+    "x": {
+      "type": "number",
+      "description": "coordinate along x-axis"
+    },
+    "y": {
+      "type": "number",
+      "description": "coordinate along y-axis"
+    },
+    "z": {
+      "type": "number",
+      "description": "coordinate along z-axis"
+    },
+    "description" : { "type" : "string" },
+    "type": { "enum": ["point"] }
+  },
+  "required": [ "x", "y", "z", "type" ],
+  "additionalProperties": false
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Geometric expression between two geometric primitives",
+  "type": "object",
+  "properties": {
+    "description" : { "type": "string" },
+    "type" : { "enum" : [ "geometric_expression"] },
+    "expression_type" : { "enum" : [
+      "point_point_distance",
+      "line_point_distance",
+      "projection_point_on_line",
+      "line_line_distance",
+      "plane_point_distance",
+      "angle_btw_planes",
+      "angle_btw_versors",
+      "angle_plane_versor",
+      "angle_line_point"
+      ]
+    },
+    "expression_name": { "type": "string" },
+    "primitive_1" : { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/primitive#" },
+    "primitive_2" : { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/primitive#" }
+  },
+  "required": [ "expression_type", "expression_name", "primitive_1", "primitive_2", "type" ],
+  "additionalProperties" : false,
+  "oneOf" : [
+   { "properties" : {
+        "expression_type" : { "enum" : [ "point_point_distance" ] },
+        "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["point"] } } } ] } } },
+        "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["point"] } } } ] } } }
+      }
+   },
+   { "properties" : {
+        "expression_type" : { "enum" : [ "angle_btw_versors" ] },
+        "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["versor"] } } } ] } } },
+        "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["versor"] } } } ] } } }
+      }
+   },
+   { "properties" : {
+        "expression_type" : { "enum" : [ "line_line_distance" ] },
+        "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["line"] } } } ] } } },
+        "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["line"] } } } ] } } }
+      }
+   },
+   { "properties" : {
+        "expression_type" : { "enum" : [ "angle_btw_planes" ] },
+        "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["plane"] } } } ] } } },
+        "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["plane"] } } } ] } } }
+      }
+   },
+   { "oneOf" : [
+     {
+       "properties" : {
+         "expression_type" : { "enum" : [ "line_point_distance", "projection_point_on_line", "angle_line_point" ] },
+         "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["line"] } } } ] } } },
+         "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["point"] } } } ] } } }
+       }
+    },
+    {
+      "properties" : {
+        "expression_type" : { "enum" : [ "line_point_distance", "projection_point_on_line", "angle_line_point" ] },
+        "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["point"] } } } ] } } },
+        "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["line"] } } } ] } } }
+      }
+    }
+  ]},
+  { "oneOf" : [
+    {
+      "properties" : {
+        "expression_type" : { "enum" : [ "plane_point_distance"] },
+        "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["plane"] } } } ] } } },
+        "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["point"] } } } ] } } }
+      }
+   },
+   {
+     "properties" : {
+       "expression_type" : { "enum" : [ "plane_point_distance"] },
+       "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["point"] } } } ] } } },
+       "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["plane"] } } } ] } } }
+     }
+   }
+ ]},
+ { "oneOf" : [
+   {
+     "properties" : {
+       "expression_type" : { "enum" : [ "angle_plane_versor"] },
+       "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["plane"] } } } ] } } },
+       "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["versor"] } } } ] } } }
+     }
+  },
+  {
+    "properties" : {
+      "expression_type" : { "enum" : [ "angle_plane_versor"] },
+      "primitive_1" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["versor"] } } } ] } } },
+      "primitive_2" : { "properties" : { "entity" : { "oneOf" : [ {  "properties" : { "type" : { "enum" : ["plane"] } } } ] } } }
+    }
+  }
+]}
+  ]
+}

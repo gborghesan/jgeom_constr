@@ -1,0 +1,34 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/task#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Constraint-based Task using Geometric Relations",
+  "type": "object",
+  "properties": {
+    "description" : { "type": "string" },
+    "type" : { "enum" : ["geom_task"] },
+    "task_name": { "type": "string" },
+    "primary" : {
+      "type" : "array",
+      "items" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/constraint" },
+      "uniqueItems" : true
+    },
+    "auxiliary" : {
+      "type" : "array",
+      "items" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/constraint" },
+      "uniqueItems" : true
+    },
+    "safety" : {
+      "type" : "array",
+      "items" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/constraint" },
+      "uniqueItems" : true
+    },
+    "monitors" : {
+       "type": "array",
+       "items" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/monitor" },
+       "minItems" : 1,
+       "uniqueItems" : true
+    }
+  },
+  "required": [ "task_name", "primary", "auxiliary", "safety", "monitors", "type" ],
+  "additionalProperties" : false
+}

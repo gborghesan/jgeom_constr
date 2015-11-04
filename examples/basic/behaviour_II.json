@@ -1,0 +1,15 @@
+{
+  "type" : "behaviour",
+  "behaviour_type" : "velocity_limit",
+  "specification" : 0.1,
+  "traj_gen_upper" : {
+    "target" : 0.5,
+    "type" : "trajectory",
+    "traj_type" : "constant"
+  },
+  "traj_gen_lower" :  {
+    "target" : -0.5,
+    "type" : "trajectory",
+    "traj_type" : "constant"
+  }
+}

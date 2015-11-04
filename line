@@ -1,0 +1,14 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/line#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Line Entity",
+  "type": "object",
+  "properties": {
+     "type": { "enum": ["line"] },
+     "description" : { "type" : "string" },
+     "direction": { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/versor#" },
+     "p": { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/point#" }
+   },
+   "required": [ "direction", "p", "type" ],
+   "additionalProperties": false
+}

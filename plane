@@ -1,0 +1,14 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/plane#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Plane Entity",
+  "type": "object",
+  "properties": {
+     "type": { "enum": ["plane"] },
+     "description" : { "type" : "string" },
+     "normal": { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/versor#" },
+     "p": { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/point#" }
+  },
+  "required": [ "normal", "p", "type" ],
+  "additionalProperties": false
+}

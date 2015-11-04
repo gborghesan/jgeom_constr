@@ -1,0 +1,8 @@
+{
+  "target" : 0.0,
+  "vel_max" : 1.0,
+  "acc_max" : 0.1,
+  "duration" : 10,
+  "type" : "trajectory",
+  "traj_type" : "trapezoidal_with_duration"
+}

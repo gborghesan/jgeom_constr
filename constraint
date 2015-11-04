@@ -1,0 +1,15 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/constraint#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Constraint over an expression",
+  "type": "object",
+  "properties": {
+    "description" : { "type": "string" },
+    "type" : { "enum" : ["constraint"] },
+    "constraint_name": { "type": "string" },
+    "expression" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/expression#" },
+    "behaviour" : { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/behaviour#" }
+  },
+  "required": [ "constraint_name", "expression", "behaviour", "type" ],
+  "additionalProperties" : false
+}

@@ -1,0 +1,24 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/versor#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Versor Entity",
+  "type": "object",
+  "properties": {
+    "type": { "enum": [ "versor"] },
+    "description" : { "type" : "string" },
+    "x": {
+      "type": "number",
+      "description": "coordinate along x-axis"
+     },
+    "y": {
+      "type": "number",
+      "description": "coordinate along y-axis"
+    },
+    "z": {
+      "type": "number",
+      "description": "coordinate along z-axis"
+    }
+  },
+  "required": [ "x", "y", "z", "type" ],
+  "additionalProperties": false
+}

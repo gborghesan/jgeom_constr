@@ -1,0 +1,6 @@
+{
+  "type" : "single_joint_expression",
+  "description" : "an example of single joint expression",
+  "expression_name" : "l_upper_arm_roll_joint",
+  "joint_name" : "l_upper_arm_roll_joint"
+}

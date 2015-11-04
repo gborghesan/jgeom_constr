@@ -1,0 +1,13 @@
+{
+  "type" : "behaviour",
+  "behaviour_type" : "positioning",
+  "specification" : 0.1,
+  "traj_gen" : {
+    "target" : 1.5,
+    "vel_max" : 1.0,
+    "acc_max" : 0.1,
+    "duration" : 5.0,
+    "type" : "trajectory",
+    "traj_type" : "trapezoidal_with_duration"
+  }
+}

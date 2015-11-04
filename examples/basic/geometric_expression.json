@@ -1,0 +1,16 @@
+{
+  "type" : "geometric_expression",
+  "expression_name" : "dist_gripper_table",
+  "description" : "distance between point on gripper and point on table",
+  "expression_type": "point_point_distance",
+  "primitive_1" : {
+    "description" : "point on robotic gripper",
+    "reference_frame" : "gripper",
+    "entity" : { "type": "point", "x": 0.0, "y" : 0.0, "z" : 0.0 }
+    },
+    "primitive_2" : {
+      "description": "point on table",
+      "reference_frame" : "table",
+      "entity" : { "type" : "point", "x": 0.5, "y": 0.5, "z" : 0.0 }
+    }
+}

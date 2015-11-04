@@ -1,0 +1,20 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/expression#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Expression",
+  "type": "object",
+  "properties": {
+    "description" : { "type" : "string" },
+    "expression" : { "$ref": "#/definitions/expression" }
+  },
+  "required": [ "expression" ],
+  "additionalProperties": false,
+  "definitions": {
+    "expression": {
+        "oneOf": [
+          { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/geometric_expression#" },
+          { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/single_joint_expression#" }
+        ]
+    }
+  }
+}

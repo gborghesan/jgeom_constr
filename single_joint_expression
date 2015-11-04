@@ -1,0 +1,14 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/single_joint_expression#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "expression that returns the value of a single joint",
+  "type": "object",
+  "properties": {
+    "description" : { "type": "string" },
+    "type" : { "enum" : [ "single_joint_expression"] },
+    "expression_name": { "type": "string" },
+    "joint_name": { "type": "string" }
+  },
+  "required": [ "expression_name", "joint_name", "type" ],
+  "additionalProperties" : false
+}

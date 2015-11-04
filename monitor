@@ -1,0 +1,46 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/monitor",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Monitor over an expression",
+  "type": "object",
+  "oneOf": [
+    { "$ref" : "#/definitions/single_bound"},
+    { "$ref" : "#/definitions/double_bound"}
+  ],
+  "definitions" : {
+    "common" : {
+      "properties" : {
+        "type" : { "enum" : ["monitor"] },
+        "description" : { "type": "string" },
+        "monitor_name": { "type": "string" },
+        "event_risen":  { "type": "string" },
+        "monitor_var_type" : { "enum": ["pos", "for", "vel"] },
+        "monitored_expression" : { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/expression#" }
+      },
+      "required" : [ "type", "monitor_name", "event_risen", "monitor_var_type", "monitored_expression" ]
+    },
+    "single_bound" : {
+      "allOf" : [
+        { "$ref" : "#/definitions/common" },
+        { "properties" : {
+            "comparison_type"  : { "enum" : ["less", "more"] },
+            "bound" : { "type": "number" }
+          },
+          "required": [ "bound", "comparison_type" ]
+        }
+      ]
+    },
+    "double_bound" : {
+      "allOf" : [
+        { "$ref" : "#/definitions/common" },
+        { "properties" : {
+            "comparison_type"  : { "enum" : ["in_interval", "out_interval"] },
+            "lower_bound" : { "type": "number" },
+            "upper_bound" : { "type": "number" }
+          },
+          "required": [ "lower_bound", "upper_bound",  "comparison_type" ]
+        }
+      ]
+    }
+  }
+}

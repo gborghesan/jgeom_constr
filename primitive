@@ -1,0 +1,26 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/primitive#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Geometric Primitive",
+  "type": "object",
+  "properties": {
+    "description" : { "type" : "string" },
+    "reference_frame": {
+      "type": "string",
+      "description": "reference frame for the geometric entity"
+    },
+    "entity" : { "$ref": "#/definitions/entity" }
+  },
+  "required": [ "reference_frame", "entity" ],
+  "additionalProperties": false,
+  "definitions": {
+    "entity": {
+        "oneOf": [
+          { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/point#" },
+          { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/versor#" },
+          { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/plane#" },
+          { "$ref": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/line#" }
+        ]
+    }
+  }
+}

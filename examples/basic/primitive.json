@@ -1,0 +1,9 @@
+{
+  "description": "a geometric primitive example",
+  "reference_frame": "table",
+  "entity": {
+    "type": "line",
+    "direction": { "type": "versor", "x": 0.0, "y": 0.0, "z": 1.0 },
+    "p" : { "type": "point", "x": 1.5, "y": 0.0, "z": 0.0 }
+  }
+}

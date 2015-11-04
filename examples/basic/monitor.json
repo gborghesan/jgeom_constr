@@ -1,0 +1,43 @@
+{  
+  "monitored_expression":{  
+    "expression":{  
+      "type":"geometric_expression",
+      "description":"Distance gripper point along line on handle, Z-coord",
+      "primitive_1":{  
+        "entity":{  
+          "type":"line",
+          "direction":{  
+            "y":0,
+            "type":"versor",
+            "x":0,
+            "z":1
+          },
+          "p":{  
+            "y":0,
+            "type":"point",
+            "x":0,
+            "z":0
+          }
+        },
+        "reference_frame":"handle"
+      },
+      "primitive_2":{  
+        "entity":{  
+          "y":0,
+          "type":"point",
+          "x":0,
+          "z":0
+        },
+        "reference_frame":"rightarm"
+      },
+      "expression_type":"projection_point_on_line",
+      "expression_name":"exp_distance_z"
+    }
+  },
+  "type":"monitor",
+  "monitor_name":"is_drawer_open",
+  "bound":0.17,
+  "monitor_var_type":"pos",
+  "event_risen":"e_drawer_opened",
+  "comparison_type":"more"
+}

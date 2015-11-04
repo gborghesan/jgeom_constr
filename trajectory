@@ -1,0 +1,62 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/trajectory",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Trajectory generator specifications for controlled constraint",
+  "type": "object",
+  "oneOf" : [
+    { "$ref" : "#/definitions/constant" },
+    { "$ref" : "#/definitions/trapezoidal" },
+    { "$ref" : "#/definitions/trapezoidal_with_duration" },
+    { "$ref" : "#/definitions/hold" }
+  ],
+  "definitions" : {
+    "constant" : {
+      "type" : "object",
+      "properties": {
+        "description" : { "type": "string" },
+        "type" : { "enum" : [ "trajectory" ] },
+        "traj_type" : { "enum" : ["constant"] },
+        "target" : { "type" : "number" }
+      },
+      "required" : [ "type", "traj_type", "target"],
+      "additionalProperties" : false
+    },
+    "trapezoidal" : {
+      "type" : "object",
+      "properties": {
+        "description" : { "type": "string" },
+        "type" : { "enum" : [ "trajectory" ] },
+        "traj_type" : { "enum" : ["trapezoidal"] },
+        "target" : { "type" : "number" },
+        "vel_max" : { "type" : "number" },
+        "acc_max" : { "type" : "number" }
+      },
+      "required" : [ "type", "traj_type", "target", "acc_max", "vel_max" ],
+      "additionalProperties" : false
+    },
+    "trapezoidal_with_duration" :{
+      "type" : "object",
+      "properties": {
+         "description" : { "type": "string" },
+         "type" : { "enum" : [ "trajectory" ] },
+         "traj_type" : { "enum" : ["trapezoidal_with_duration"] },
+         "target" : { "type" : "number" },
+         "vel_max" : { "type" : "number" },
+         "acc_max" : { "type" : "number" },
+         "duration" : { "type" : "number" }
+      },
+     "required" : [ "type", "traj_type", "target", "acc_max", "vel_max", "duration" ],
+     "additionalProperties" : false
+    },
+    "hold" : {
+      "type" : "object",
+      "properties": {
+        "description" : { "type": "string" },
+        "type" : { "enum" : [ "trajectory" ] },
+        "traj_type" : { "enum" : ["hold"] }
+      },
+      "required" : [ "type", "traj_type"],
+      "additionalProperties" : false
+    }
+  }
+}

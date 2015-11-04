@@ -1,0 +1,37 @@
+{
+  "id": "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/behaviour#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Control Behaviour for a target constraint",
+  "type": "object",
+  "properties": {
+    "description" : { "type": "string" },
+    "type" : { "enum": ["behaviour"] },
+    "behaviour_type" : { "enum" : [
+      "positioning",
+      "move_toward",
+      "interaction",
+      "compliant",
+      "position_limit",
+      "velocity_limit",
+      "force_limit"
+    ]
+    }
+  },
+  "required": [ "behaviour_type", "type" ],
+  "oneOf" : [
+    { "properties" : {
+        "behaviour_type" : { "enum" : [ "position_limit", "velocity_limit", "force_limit" ] },
+        "traj_gen_upper" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/trajectory" },
+        "traj_gen_lower" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/trajectory" }
+      },
+      "required" :  [ "traj_gen_upper", "traj_gen_lower" ]
+    },
+    { "properties" : {
+        "behaviour_type" : { "enum" : [ "positioning", "move_toward", "interaction", "compliant" ] },
+        "specification" : { "type" : "number" },
+        "traj_gen" : { "$ref" : "http://people.mech.kuleuven.be/~u0072295/jgeom_constr/trajectory" }
+      },
+      "required" :  [ "traj_gen", "specification" ]
+    }
+  ]
+}
